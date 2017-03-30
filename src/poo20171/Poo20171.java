@@ -6,6 +6,8 @@
 
 package poo20171;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -56,25 +58,47 @@ public class Poo20171 {
      * @return 
      */
     protected static int menuPrincipalTrabalho01(){
-        int opcao       = -1;
-        String opcao_digitada = "";
-        while(opcao != 9){
-            System.out.println("Menu do trabalho 1");
-            System.out.println("0 - Carregar a lista de nomes de pessoas");
-            System.out.println("1 - Inserir um nome de pessoa na lista");
-            System.out.println("2 - Exibir os nomes das pessoas na lista");
-            System.out.println("3 - Gravar lista de nomes de pessoas");
-            System.out.println("9 - Fim");
-            System.out.println("");
-            System.out.print("Digite a opção desejada: ");
-            opcao_digitada  = scanner.nextLine();
-            // Tratando o possível erro do usuário teclar uma opção não numeral
-            try{
-                opcao       = Integer.parseInt(opcao_digitada);
-            } catch(NumberFormatException e){
-                System.out.println("Você digitou uma opção não numérica: '" + e.getMessage() + "'");
-                opcao       = -1;
+        int opcao       = -1;    
+        try {
+            String opcao_digitada;
+            Trabalho1   t;
+            t = new Trabalho1();
+            while(opcao != 9){
+                System.out.println("Menu do trabalho 1");
+                System.out.println("0 - Carregar a lista de nomes de pessoas");
+                System.out.println("1 - Inserir um nome de pessoa na lista"); // Feito
+                System.out.println("2 - Exibir os nomes das pessoas na lista"); // Feito
+                System.out.println("3 - Gravar lista de nomes de pessoas");
+                System.out.println("9 - Fim");
+                System.out.println("");
+                System.out.print("Digite a opção desejada: ");
+                opcao_digitada  = scanner.nextLine();
+                    // Tratando o possível erro do usuário teclar uma opção não numeral
+                    opcao       = Integer.parseInt(opcao_digitada);
+                    // Fazendo uma ação de acordo com a opção escolhida
+                    switch(opcao){
+                        case 0:
+                            t.Carregar_nome();
+                            break;
+                        case 1:
+                            t.Ler_nome();
+                            break;
+                        case 2:
+                            t.Exibir_nome();
+                            break;
+                        case 3:
+                            t.Gravar_lista();
+                            break;
+                        default:
+                            break;
+                    }
             }
+        } catch(NumberFormatException e){
+            System.out.println("Você digitou uma opção não numérica: '" + e.getMessage() + "'");
+            opcao       = -1;
+        } catch (Exception ex) {
+            System.out.println("Erro: '" + ex.getMessage() + "'");
+            opcao       = -1;
         }
         return opcao;
     }
