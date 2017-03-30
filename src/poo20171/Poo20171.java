@@ -1,13 +1,11 @@
 /**
- * Victor Barbosa Vilella (213083106)
- * Matheus de Souza Carneiro (213083xxx)
- * Histórico de revisões disponível em https://github.com/victorvilella/uff-pog-2017-1
+ * Victor Barbosa Vilella
+ * Matheus de Souza Carneiro
+ * Histórico de versões disponível em https://github.com/victorvilella/uff-pog-2017-1
  */
 
 package poo20171;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -90,6 +88,7 @@ public class Poo20171 {
                             t.Gravar_lista();
                             break;
                         default:
+                            System.out.println("fim");
                             break;
                     }
             }
